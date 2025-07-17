@@ -19,15 +19,25 @@ if(NOT fmt_POPULATED)
         add_subdirectory(${fmt_SOURCE_DIR} ${fmt_BINARY_DIR})
 endif()
 
-
+# Add GLFW library
+FetchContent_Declare(
+        glfw
+        GIT_REPOSITORY https://github.com/glfw/glfw.git
+        GIT_TAG 3.3.8
+)
+FetchContent_GetProperties(glfw)
+if(NOT glfw_POPULATED)
+        FetchContent_Populate(glfw)
+        add_subdirectory(${glfw_SOURCE_DIR} ${glfw_BINARY_DIR})
+endif()
 
 include_directories(
         ${PROJECT_SOURCE_DIR}/src
 )
 
 file(GLOB SOURCE_FILES
-        "${PROJECT_SOURCE_DIR}/include/*.h"
-        "${PROJECT_SOURCE_DIR}/include/*.hpp"
+        "${PROJECT_SOURCE_DIR}/src/*.h"
+        "${PROJECT_SOURCE_DIR}/src/*.hpp"
         "${PROJECT_SOURCE_DIR}/src/*.cpp"
         "${PROJECT_SOURCE_DIR}/src/*.c"
 )

@@ -111,6 +111,7 @@ const std::string two_byte_operators[] = {
 };
 
 class CharString{
+public:
   CharString():x_pos(0),y_pos(0), defaultWidthX(256), nominalWidthX(256), width(256) {};
   ~CharString(){};
 
@@ -128,6 +129,7 @@ class CharString{
   int x_pos;
   int y_pos;  
 
+public:
   void addPoint(int x, int y);
   void addHint(int x, int y, bool isV);
   int32_t getNextNum();

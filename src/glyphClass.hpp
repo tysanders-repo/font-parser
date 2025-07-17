@@ -1,4 +1,4 @@
-using namespace std;
+#include <string>
 
 class glyphClass
 {

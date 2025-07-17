@@ -155,6 +155,7 @@ int decode_operand(int b0, int b1){
     fmt::print(fg(fmt::color::red), " :{:d}] ", (-256*(b0-251) - b1 -108));
     return (-256*(b0-251) - b1 -108);
   }
+  return 0; // Default return value
 }
 
 //b0 == 28
@@ -380,13 +381,13 @@ void parserClass::print_table_records(){
 
 void parserClass::hex_to_ascii(uint32_t hex) {
     char str[11];
-    sprintf(str, "%c%c%c%c", hex >> 24, hex >> 16, hex >> 8, hex);
+    snprintf(str, sizeof(str), "%c%c%c%c", hex >> 24, hex >> 16, hex >> 8, hex);
     fmt::print(str);
 }
 
 void parserClass::hex_to_ascii(uint8_t hex) {
     char str[11];
-    sprintf(str, "%c%c", hex >> 8, hex);
+    snprintf(str, sizeof(str), "%c%c", hex >> 8, hex);
     fmt::print(str);
 }
 

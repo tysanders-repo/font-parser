@@ -1,6 +1,6 @@
 #include "glyphClass.hpp"
 
-using namespace std;
+#include <string>
 
 //constructor
 
